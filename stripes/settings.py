@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'stripe.urls'
+ROOT_URLCONF = 'stripes.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'stripe.wsgi.application'
+WSGI_APPLICATION = 'stripes.wsgi.application'
 
 
 # Database
