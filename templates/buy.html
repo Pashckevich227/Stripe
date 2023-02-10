@@ -6,11 +6,14 @@
     <title>Buy</title>
 </head>
 <body>
-{% for items in object_list %}
-    <h1>{{ items.name }}</h1>
-    <p>{{ items.description }}</p>
-    <p>{{ items.price }} рублей.</p>
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <p>{{ object.description }}</p>
+    <p>{{ object.price }} рублей</p>
+    <form action="/create-checkout-session" method="GET">
+      <button type="Buy">Checkout</button>
+    </form>
     <hr>
-{% endfor %}
+{% endblock content %}
 </body>
 </html>
