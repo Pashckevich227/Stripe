@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from django.views.generic import DetailView
 from django.http import HttpResponse
 from .models import Item
-
 import stripe
-stripe.api_key = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+import environ
+import os
+env = environ.Env()
+environ.Env.read_env(os.path.join("/venv/Stripe/", '.env'))
+stripe.api_key = env("STRIPE_API_KEY")
 
 
 def create_checkout_session(request, pk):
