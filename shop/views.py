@@ -15,7 +15,7 @@ def create_checkout_session(request, pk):
                 'product_data': {
                     'name': 'Telephone',
                 },
-                'unit_amount': Item.objects.get(pk=1),
+                'unit_amount': Item.objects.get(pk=pk),
             },
             'quantity': 1,
         }],
