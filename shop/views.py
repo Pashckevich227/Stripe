@@ -14,7 +14,7 @@ def create_checkout_session(request, pk):
     session = stripe.checkout.Session.create(
         line_items=[{
             'price_data': {
-                'currency': 'usd',
+                'currency': 'USD',
                 'product_data': {
                     'name': 'Telephone',
                 },
@@ -32,3 +32,4 @@ def create_checkout_session(request, pk):
 class Buy(DetailView):
     model = Item
     template_name = 'buy.html'
+
