@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from django.http import HttpResponse
 from .models import Item
 import stripe
@@ -33,3 +33,6 @@ class Buy(DetailView):
     model = Item
     template_name = 'buy.html'
 
+class ShopListView(ListView):
+    model = Item
+    template_name = 'base.html'

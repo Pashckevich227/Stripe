@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Магазин телефонов</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+  </head>
+  <body>
+
+  {% for item in object_list %}
+    <div class="post-entry">
+      <h2>
+        <a href="{% url 'item' item.pk %}">{{ item.name }}</a>
+      </h2>
+        <p>{{ item.description }}</p><p></p>
+        <p>{{ item.human_price }} $</p>
+    </div>
+  <hr>
+  {% endfor %}
+
+    <div>
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
+</html>
