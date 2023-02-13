@@ -28,6 +28,13 @@ def create_checkout_session(request, pk):
     )
     return HttpResponse(session.id)
 
+def create_basket(request, pk):
+    session = stripe.checkout.Session.create(
+        line_item=[],
+        mode='payment',
+        success_url='http://localhost:8000/',
+        cancel_url='http://localhost:8000/'
+    )
 
 class Buy(DetailView):
     model = Item
