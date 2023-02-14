@@ -5,7 +5,9 @@
   </head>
   <body>
 <header>
-  <a href="#">Корзина</a>
+  {% if request.path == "/" %}
+  <a href="order">Корзина</a>
+  {% endif %}
 </header>
   {% for item in object_list %}
     <div class="post-entry">
