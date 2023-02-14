@@ -16,6 +16,7 @@
       </h2>
         <p>{{ item.description }}</p><p></p>
         <p>{{ item.human_price }} $</p>
+        <a href="{% url 'order_new' item.pk %}">В корзину</a>
     </div>
   <hr>
   {% endfor %}

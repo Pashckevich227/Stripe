@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
-from django.views.generic import DetailView, ListView, CreateView
-from django.http import HttpResponse
-from .models import Item, Order
+import os
 import stripe
 import environ
-import os
+from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
+from django.views.generic import DetailView, ListView, CreateView, DeleteView
+from django.http import HttpResponse
+from .models import Item, Order
 from django.core import serializers
 env = environ.Env()
 environ.Env.read_env(os.path.join("/venv/Stripe/", '.env'))
@@ -63,6 +64,17 @@ class ShopListView(ListView):
     model = Item
     template_name = 'base.html'
 
-class OrderCreateView(ListView):
+class OrderView(ListView):
     model = Order
     template_name = 'order.html'
+
+class OrderCreateView(CreateView):
+    model = Order
+    template_name = 'order_new.html'
+    fields = ['pk_item', 'quantity']
+    success_url = reverse_lazy('order')
+
+class OrderDeleteView(DeleteView):
+    model = Order
+    template_name = 'order_delete.html'
+    success_url = reverse_lazy('order')

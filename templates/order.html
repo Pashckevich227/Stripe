@@ -10,6 +10,7 @@
     <p>id товара: {{ order.pk }}</p>
     <p>Стоимость товара: {{ order.pk_item }} центов</p>
     <p>Количество: {{ order.quantity }}</p>
+    <p><a href="{% url 'order_delete' order.pk %}">Delete</a></p>
     <hr>
     {% endfor %}
     <button id="buy-button">Buy all</button>
