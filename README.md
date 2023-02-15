@@ -7,7 +7,31 @@ ____
 * Добавлять товары в корзину
 * Удалять товары из корзины
 * Оформлять заказ из корзины
+____
+Протестировать -> http://pashckevich227.pythonanywhere.com/
+____
+Скачать через Docker:
 
+`docker pull pash4ckevich/django_stripe:main`
+
+`docker run —name django_stripe -d -p 8000:8000 pash4ckevich/django_stripe:main`
+
+После чего в браузере перейдите на `http://localhost:8000/`
+____
+Склонировать проект к себе:
+Специально добавил в общий доступ файл .env с ключами, чтобы все корректно работало, если захотите склонировать. Обычно так не делается и он добавляется в .gitignore
+
+Установка:
+`pip install -r requirements.txt`
+
+Запуск:
+
+На Windows:
+`python manage.py runserver`
+
+На Linus:
+`python3 manage.py runserver`
+____
 ## Главная страница:
 ![Скриншот 14-02-2023 151619](https://user-images.githubusercontent.com/65419742/218735980-45c5beee-fb88-44cb-b9af-d24c27a6c9f8.jpg)
 
