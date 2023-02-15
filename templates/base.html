@@ -5,7 +5,9 @@
   </head>
   <body>
 <header>
-  <a href="#">Корзина</a>
+  {% if request.path == "/" %}
+  <a href="order">Корзина</a>
+  {% endif %}
 </header>
   {% for item in object_list %}
     <div class="post-entry">
@@ -14,6 +16,7 @@
       </h2>
         <p>{{ item.description }}</p><p></p>
         <p>{{ item.human_price }} $</p>
+        <a href="{% url 'order_new' item.pk %}">В корзину</a>
     </div>
   <hr>
   {% endfor %}
